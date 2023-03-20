@@ -1,0 +1,14 @@
+php artisan make:model Petient -m
+php artisan make:factory PetientFactory --model=Petient
+php artisan make:migration create_category_table
+php artisan migrate:fresh --seed
+php artisan make:factory CategoryFactory --model=Category
+php artisan make:model Category -m
+
+php artisan ti
+App\Models\Category::factory(10)->create();
+App\Models\Petient::factory(20)->create();
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root@123';
+GRANT ALL PRIVILEGES ON *.* TO  'root'@'localhost' WITH GRANT OPTION;
+
